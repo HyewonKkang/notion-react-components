@@ -1,0 +1,19 @@
+.wrapper {
+  width: 100%;
+  max-width: 685px;
+}
+
+.h2-wrapper {
+  margin-top: 2em;
+  margin-bottom: 4px;
+}
+
+.h3-wrapper {
+  margin-top: 1.4em;
+  margin-bottom: 1px;
+}
+
+.h4-wrapper {
+  margin-top: 1em;
+  margin-bottom: 1px;
+}
