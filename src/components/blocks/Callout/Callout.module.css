@@ -1,0 +1,29 @@
+:root {
+  --callout-background: rgb(241, 241, 239);
+}
+
+.callout-block {
+  margin-top: 4px;
+  margin-bottom: 4px;
+  display: flex;
+  border-radius: 3px;
+  background-color: var(--callout-background);
+  padding: 16px 16px 16px 12px;
+}
+
+.callout-contents {
+  display: flex;
+  min-width: 0px;
+  margin-left: 8px;
+  width: 100%;
+}
+
+.inner-block {
+  display: flex;
+  width: 100%;
+  padding-left: 2px;
+  padding-right: 2px;
+  flex-direction: column;
+  justify-content: center;
+  cursor: text;
+}
