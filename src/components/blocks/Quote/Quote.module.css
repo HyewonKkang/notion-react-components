@@ -1,0 +1,19 @@
+.quote-block {
+  width: 100%;
+  max-width: 619px;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.quote-block blockquote {
+  margin: 0px;
+  font-size: 1em;
+  padding: 3px 2px;
+}
+
+.quote {
+  border-left: 3px solid currentcolor;
+  padding-left: 14px;
+  padding-right: 14px;
+  width: 100%;
+}
