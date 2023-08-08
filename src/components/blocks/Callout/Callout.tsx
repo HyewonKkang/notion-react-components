@@ -10,22 +10,18 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   emoji?: string;
 }
 
-function Callout({ emoji, children, ...rest }: Props) {
+function Callout({
+  emoji,
+  children = <Text placeholder='내용을 입력하세요' style={{ marginTop: '1px' }} />,
+  ...rest
+}: Props) {
   return (
     <div className={cx('callout-block')} {...rest}>
       <div>
         <Icon icon={emoji} />
       </div>
       <div className={cx('callout-contents')}>
-        <div className={cx('inner-block')}>
-          {React.isValidElement(children) && children.type === Text
-            ? cloneElement(children, {
-                ...children.props,
-                placeholder: '내용을 입력하세요',
-                style: { marginTop: '1px' },
-              })
-            : children}
-        </div>
+        <div className={cx('inner-block')}>{children}</div>
       </div>
     </div>
   );
