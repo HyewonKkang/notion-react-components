@@ -1,0 +1,109 @@
+.list-block {
+  width: 100%;
+  /* max-width: 619px; */
+  margin-top: 1px;
+  margin-bottom: 1px;
+  display: flex;
+  align-items: flex-start;
+  gap: 5px;
+  padding-left: 1px;
+}
+
+/* BulletedList */
+
+.bullet-point {
+  margin-right: 2px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: calc(1.5em + 3px + 3px);
+}
+
+.bullet-point::before {
+  content: '•';
+  font-size: 1.5em;
+  line-height: 1;
+  font-family: Arial;
+  margin-bottom: 0px;
+}
+
+/* NumberedList */
+
+.item-number {
+  margin-right: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: calc(1.5em + 3px + 3px);
+}
+
+.item-number::before {
+  content: attr(data-number);
+  text-align: center;
+  white-space: nowrap;
+  width: 24px;
+  margin-top: 2px;
+}
+
+/* ToggleList */
+
+.toggle-icon-wrapper {
+  margin-right: 2px;
+  width: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-grow: 0;
+  flex-shrink: 0;
+  min-height: calc(1.5em + 3px + 3px);
+}
+
+.toggle-icon {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  border-radius: 3px;
+  color: var(--filled-placeholder);
+}
+
+.toggle-icon.filled {
+  color: var(--font-black);
+}
+
+.toggle-icon.opened {
+  -ms-transform: rotate(90deg);
+  -webkit-transform: rotate(90deg);
+  transform: rotate(90deg);
+}
+
+.toggle-icon svg {
+  width: 10px;
+
+  [fill] {
+    &:not([fill='none']) {
+      fill: currentColor;
+    }
+  }
+}
+
+.toggle-body-wrapper {
+  flex: 1 1 0px;
+  min-width: 1px;
+}
+
+.toggle-body {
+  height: 0;
+  width: 100%;
+  overflow: hidden;
+}
