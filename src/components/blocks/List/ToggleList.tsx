@@ -1,17 +1,9 @@
-import {
-  HTMLAttributes,
-  ReactElement,
-  useCallback,
-  useEffect,
-  useRef,
-  useState,
-  MouseEvent,
-  Children,
-} from 'react';
+import { HTMLAttributes, ReactElement } from 'react';
 import classnames from 'classnames/bind';
 import styles from './List.module.css';
 import Text from '../Text';
 import { ReactComponent as ToggleIcon } from '../../../assets/icons/toggle.svg';
+import useToggle from '../../../hooks/useToggle';
 
 const cx = classnames.bind(styles);
 
@@ -20,31 +12,8 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 function ToggleList({ contents, ...rest }: Props) {
-  const toggleBodyRef = useRef<HTMLDivElement>(null);
-  const toggleContentRef = useRef<HTMLDivElement>(null);
-
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
-  const [filled, setFilled] = useState<boolean>(!!contents);
-
-  const handleButtonClick = useCallback(
-    (e: MouseEvent<HTMLButtonElement>) => {
-      e.stopPropagation();
-      if (toggleBodyRef.current === null || toggleContentRef.current === null) return;
-      if (toggleBodyRef.current.clientHeight > 0) {
-        toggleBodyRef.current.style.height = '0';
-      } else {
-        toggleBodyRef.current.style.height = `${toggleContentRef.current.clientHeight}px`;
-      }
-      setIsCollapsed(!isCollapsed);
-    },
-    [isCollapsed],
-  );
-
-  useEffect(() => {
-    if (!toggleContentRef.current) return;
-    if (toggleContentRef.current.children.length === 0) setFilled(false);
-    else setFilled(true);
-  }, [toggleContentRef]);
+  const { filled, isCollapsed, handleButtonClick, toggleBodyRef, toggleContentRef } =
+    useToggle(contents);
 
   return (
     <div className={cx('list-block', 'toggle-header')} {...rest}>
@@ -61,7 +30,7 @@ function ToggleList({ contents, ...rest }: Props) {
         <Text placeholder='토글' style={{ marginTop: 0 }} />
         <div className={cx('toggle-body')} ref={toggleBodyRef}>
           <div className={cx('contents')} ref={toggleContentRef}>
-            {contents}
+            {contents || <Text />}
           </div>
         </div>
       </div>
