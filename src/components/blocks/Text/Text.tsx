@@ -5,12 +5,18 @@ import styles from './Text.module.css';
 const cx = classnames.bind(styles);
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  children?: string;
+  strikeThrough?: boolean;
 }
 
-function Text({ children, ...rest }: Props) {
+function Text({ strikeThrough = false, children, ...rest }: Props) {
   return (
-    <div className={cx('text')} {...rest} contentEditable spellCheck suppressContentEditableWarning>
+    <div
+      className={cx('text', `${strikeThrough ? 'strike-through' : ''}`)}
+      contentEditable
+      spellCheck
+      suppressContentEditableWarning
+      {...rest}
+    >
       {children}
     </div>
   );
