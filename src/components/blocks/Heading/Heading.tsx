@@ -1,4 +1,4 @@
-import { HTMLAttributes, useState, useEffect } from 'react';
+import { HTMLAttributes } from 'react';
 import classnames from 'classnames/bind';
 import styles from './Heading.module.css';
 
@@ -6,7 +6,7 @@ const cx = classnames.bind(styles);
 
 type HeadingTag = 'h1' | 'h2' | 'h3' | 'h4';
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {
+export interface Props extends HTMLAttributes<HTMLHeadingElement> {
   tag: HeadingTag;
   children?: string;
 }
@@ -19,16 +19,17 @@ const PlaceholderByTag: Record<HeadingTag, string> = {
 };
 
 function Heading({ tag, children, ...rest }: Props) {
-  const Tag = tag as keyof JSX.IntrinsicElements;
+  const Tag = tag;
 
   return (
-    <div className={cx(`${tag}-wrapper`)} {...rest}>
+    <div className={cx(`${tag}-wrapper`)}>
       <Tag
         className={cx(`${children === '' ? 'placeholder' : ''}`)}
         contentEditable
         spellCheck
         suppressContentEditableWarning
         placeholder={PlaceholderByTag[tag]}
+        {...rest}
       >
         {children}
       </Tag>

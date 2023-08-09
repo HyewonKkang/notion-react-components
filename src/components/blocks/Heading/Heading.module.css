@@ -1,6 +1,6 @@
 .wrapper {
   width: 100%;
-  max-width: 685px;
+  /* max-width: 685px; */
 }
 
 .h2-wrapper {
@@ -16,4 +16,52 @@
 .h4-wrapper {
   margin-top: 1em;
   margin-bottom: 1px;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  white-space: pre-wrap;
+  word-break: break-word;
+  color: var(--font-black);
+  padding: 3px 2px;
+  margin: 0;
+  cursor: text;
+}
+
+h1:focus,
+h2:focus,
+h3:focus,
+h4:focus,
+h5:focus,
+h6:focus {
+  outline: none;
+  border: none;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  line-height: 3rem;
+}
+
+h2 {
+  font-size: 1.875rem;
+  font-weight: 600;
+  line-height: 2.438rem;
+}
+
+h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  line-height: 1.95rem;
+}
+
+h4 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.625rem;
 }
