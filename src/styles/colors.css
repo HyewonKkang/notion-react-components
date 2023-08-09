@@ -1,6 +1,126 @@
 :root {
   --font-black: rgb(55, 53, 47);
+  --font-gray: rgb(120, 119, 116);
+  --font-placeholder: rgba(55, 53, 47, 0.2);
+  --font-media-description: rgba(55, 53, 47, 0.65);
+  --font-media-icon: rgba(55, 53, 47, 0.45);
+  --font-aside-color: rgba(25, 23, 17, 0.6);
+
+  --filled-placeholder: rgba(55, 53, 47, 0.5);
 
   --hover-background: rgba(55, 53, 47, 0.08);
   --focus-background: rgba(55, 53, 47, 0.16);
+  --media-background: rgb(242, 241, 238);
+  --input-background: rgba(242, 241, 238, 0.6);
+  --blue-button-background: rgb(35, 131, 226);
+  --blue-button-hover-background: rgb(0, 117, 211);
+  --blue-button-focus-background: rgb(0, 104, 195);
+  --aside-background: rgb(251, 251, 250);
+
+  --gray-text: rgb(120, 119, 116);
+  --gray-bg: rgb(241, 241, 239);
+  --brown-text: rgb(159, 107, 83);
+  --brown-bg: rgb(244, 238, 238);
+  --orange-text: rgb(217, 115, 13);
+  --orange-bg: rgb(251, 236, 221);
+  --yellow-text: rgb(203, 145, 47);
+  --yellow-bg: rgb(251, 243, 219);
+  --green-text: rgb(68, 131, 97);
+  --green-bg: rgb(237, 243, 236);
+  --blue-text: rgb(51, 126, 169);
+  --blue-bg: rgb(231, 243, 248);
+  --purple-text: rgb(144, 101, 176);
+  --purple-bg: rgba(244, 240, 247, 0.8);
+  --pink-text: rgb(193, 76, 138);
+  --pink-bg: rgba(249, 238, 243, 0.8);
+  --red-text: rgba(212, 76, 71, 1);
+  --red-bg: rgb(253, 235, 236);
+
+  --single-code-text: #eb5757;
+  --single-code-bg: rgba(135, 131, 120, 0.15);
+}
+
+/* default background */
+
+.gray-background {
+  background: var(--gray-bg);
+}
+
+.brown-background {
+  background: var(--brown-bg);
+}
+
+.orange-background {
+  background: var(--orange-bg);
+}
+
+.yellow-background {
+  background: var(--yellow-bg);
+}
+
+.green-background {
+  background: var(--green-bg);
+}
+
+.blue-background {
+  background: var(--blue-bg);
+}
+
+.purple-background {
+  background: var(--purple-bg);
+}
+
+.pink-background {
+  background: var(--pink-bg);
+}
+
+.red-background {
+  background: var(--red-bg);
+}
+
+/* default font color */
+
+.gray-font {
+  color: var(--gray-text);
+  fill: var(--gray-text);
+}
+
+.brown-font {
+  color: var(--brown-text);
+  fill: var(--brown-text);
+}
+
+.orange-font {
+  color: var(--orange-text);
+  fill: var(--orange-text);
+}
+
+.yellow-font {
+  color: var(--yellow-text);
+  fill: var(--yellow-text);
+}
+
+.green-font {
+  color: var(--green-text);
+  fill: var(--green-text);
+}
+
+.blue-font {
+  color: var(--blue-text);
+  fill: var(--blue-text);
+}
+
+.purple-font {
+  color: var(--purple-text);
+  fill: var(--purple-text);
+}
+
+.pink-font {
+  color: var(--pink-text);
+  fill: var(--pink-text);
+}
+
+.red-font {
+  color: var(--red-text);
+  fill: var(--red-text);
 }
