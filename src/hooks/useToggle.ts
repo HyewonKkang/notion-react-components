@@ -8,11 +8,11 @@ import {
   ReactNode,
 } from 'react';
 
-function useToggle(initialContent?: ReactElement | ReactNode) {
+function useToggle(initialContent?: ReactElement | ReactNode, open?: boolean) {
   const toggleBodyRef = useRef<HTMLDivElement | null>(null);
   const toggleContentRef = useRef<HTMLDivElement | null>(null);
 
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(false);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(open || false);
   const [filled, setFilled] = useState<boolean>(!!initialContent);
 
   const isTextNode = (node: Node): boolean => node.nodeType === Node.TEXT_NODE;
@@ -21,6 +21,19 @@ function useToggle(initialContent?: ReactElement | ReactNode) {
     if (node.nodeType !== Node.ELEMENT_NODE) return false;
     const element = node as HTMLElement;
     return element.className.includes('text');
+  };
+
+  const calculateContentHeight = () => {
+    if (!toggleContentRef.current) return 0;
+    return toggleContentRef.current.offsetHeight;
+  };
+
+  const updateHeight = () => {
+    if (!toggleBodyRef.current) return;
+
+    const contentHeight = calculateContentHeight();
+    const newHeight = isCollapsed ? `${contentHeight}px` : '0';
+    toggleBodyRef.current.style.height = newHeight;
   };
 
   useEffect(() => {
@@ -36,16 +49,23 @@ function useToggle(initialContent?: ReactElement | ReactNode) {
         const textContent = childNodes[0].textContent?.trim();
         setFilled(textContent !== '');
       } else setFilled(true);
+
+      updateHeight();
     };
 
     checkFilled();
 
-    const observer = new MutationObserver(checkFilled);
-    observer.observe(toggleContentRef.current as Node, {
-      childList: true,
-      characterData: true,
-      subtree: true,
+    const observer = new MutationObserver(() => {
+      checkFilled();
     });
+
+    if (toggleContentRef.current) {
+      observer.observe(toggleContentRef.current, {
+        childList: true,
+        characterData: true,
+        subtree: true,
+      });
+    }
 
     return () => {
       observer.disconnect();
@@ -55,16 +75,14 @@ function useToggle(initialContent?: ReactElement | ReactNode) {
   const handleButtonClick = useCallback(
     (e: MouseEvent<HTMLButtonElement>) => {
       e.stopPropagation();
-      if (toggleBodyRef.current === null || toggleContentRef.current === null) return;
-      if (toggleBodyRef.current.clientHeight > 0) {
-        toggleBodyRef.current.style.height = '0';
-      } else {
-        toggleBodyRef.current.style.height = `${toggleContentRef.current.clientHeight}px`;
-      }
       setIsCollapsed(!isCollapsed);
     },
     [isCollapsed],
   );
+
+  useEffect(() => {
+    updateHeight();
+  }, [isCollapsed]);
 
   return { filled, isCollapsed, handleButtonClick, toggleBodyRef, toggleContentRef };
 }
