@@ -8,10 +8,11 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   strikeThrough?: boolean;
 }
 
-function Text({ strikeThrough = false, children, ...rest }: Props) {
+function Text({ strikeThrough = false, className, children, style, ...rest }: Props) {
   return (
     <div
-      className={cx('text', `${strikeThrough ? 'strike-through' : ''}`)}
+      style={{ ...style }}
+      className={cx('text', `${strikeThrough ? 'strike-through' : ''}`, className)}
       contentEditable
       spellCheck
       suppressContentEditableWarning
