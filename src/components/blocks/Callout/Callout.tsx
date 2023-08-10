@@ -17,6 +17,7 @@ function Callout({
   emoji,
   fontColor,
   backgroundColor = 'gray',
+  className,
   children = <Text placeholder='내용을 입력하세요' style={{ marginTop: '1px' }} />,
   ...rest
 }: Props) {
@@ -24,10 +25,15 @@ function Callout({
 
   return (
     <div
-      className={cx('callout-block', {
-        [`${backgroundColor}-background`]: backgroundColor,
-        [`${fontColor}-font`]: fontColor,
-      })}
+      className={cx(
+        'callout-block',
+        {
+          [`${backgroundColor}-background`]: backgroundColor,
+          [`${fontColor}-font`]: fontColor,
+          'white-background': fontColor,
+        },
+        className,
+      )}
       {...rest}
     >
       <div>

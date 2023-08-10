@@ -18,11 +18,11 @@ const PlaceholderByTag: Record<HeadingTag, string> = {
   h4: '제목3',
 };
 
-function Heading({ tag, children, ...rest }: Props) {
+function Heading({ tag, children, className, ...rest }: Props) {
   const Tag = tag;
 
   return (
-    <div className={cx(`${tag}-wrapper`)}>
+    <div className={cx(`${tag}-wrapper`, className)}>
       <Tag
         className={cx(`${children === '' ? 'placeholder' : ''}`)}
         contentEditable

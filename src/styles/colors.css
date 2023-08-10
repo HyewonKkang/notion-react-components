@@ -78,6 +78,11 @@
   background: var(--red-bg);
 }
 
+.white-background {
+  background: none;
+  border: 1px solid var(--focus-background);
+}
+
 /* default font color */
 
 .gray-font {

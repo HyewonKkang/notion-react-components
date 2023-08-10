@@ -6,9 +6,9 @@ const cx = classnames.bind(styles);
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {}
 
-function Divider({ ...rest }: Props) {
+function Divider({ className, ...rest }: Props) {
   return (
-    <div className={cx('divider-block')} {...rest}>
+    <div className={cx('divider-block', className)} {...rest}>
       <div className={cx('divider')} />
     </div>
   );
