@@ -7,9 +7,9 @@ const cx = classnames.bind(styles);
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {}
 
-function Quote({ children, ...rest }: Props) {
+function Quote({ children, className, ...rest }: Props) {
   return (
-    <div className={cx('quote-block')} {...rest}>
+    <div className={cx('quote-block', className)} {...rest}>
       <blockquote>
         <div className={cx('quote')}>
           {children || <Text placeholder='비어 있는 인용' style={{ margin: 0, padding: 0 }} />}

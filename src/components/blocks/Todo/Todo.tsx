@@ -9,18 +9,20 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   checked?: boolean;
 }
 
-function Todo({ checked, ...rest }: Props) {
+function Todo({ checked, className, children, ...rest }: Props) {
   const [checkState, setCheckState] = useState<boolean>(checked || false);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => setCheckState(e.target.checked);
 
   return (
-    <div className={cx('todo-block')} {...rest}>
+    <div className={cx('todo-block', className)} {...rest}>
       <div className={cx('checkbox')} data-content-editable-void>
         <input type='checkbox' defaultChecked={checked} onChange={handleChange} />
         <div aria-hidden className={cx('checkbox-el')} />
       </div>
-      <Text placeholder='할 일' style={{ marginTop: 0 }} strikeThrough={checkState} />
+      <Text placeholder='할 일' style={{ marginTop: 0 }} strikeThrough={checkState}>
+        {children as string}
+      </Text>
     </div>
   );
 }

@@ -8,6 +8,7 @@
   padding: 3px 2px;
   line-height: 1.625rem;
   cursor: text;
+  color: var(--font-black);
 }
 
 .text:focus {
@@ -55,4 +56,19 @@
 :global [contentEditable]:empty:after {
   content: attr(placeholder);
   -webkit-text-fill-color: rgba(55, 53, 47, 0.15);
+}
+
+.text > a {
+  border-bottom: 0.05em solid;
+  border-color: var(--font-anchor);
+  opacity: 0.7;
+  cursor: pointer;
+  color: inherit;
+  word-wrap: break-word;
+  text-decoration: inherit;
+}
+
+.text > a:hover,
+.text > a:focus {
+  background: none;
 }

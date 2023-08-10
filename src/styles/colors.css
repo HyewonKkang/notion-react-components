@@ -5,7 +5,7 @@
   --font-media-description: rgba(55, 53, 47, 0.65);
   --font-media-icon: rgba(55, 53, 47, 0.45);
   --font-aside-color: rgba(25, 23, 17, 0.6);
-
+  --font-anchor: rgba(55, 53, 47, 0.4);
   --filled-placeholder: rgba(55, 53, 47, 0.5);
 
   --hover-background: rgba(55, 53, 47, 0.08);
@@ -42,90 +42,90 @@
 
 /* default background */
 
-.gray-background {
+:global .gray-background {
   background: var(--gray-bg);
 }
 
-.brown-background {
+:global .brown-background {
   background: var(--brown-bg);
 }
 
-.orange-background {
+:global .orange-background {
   background: var(--orange-bg);
 }
 
-.yellow-background {
+:global .yellow-background {
   background: var(--yellow-bg);
 }
 
-.green-background {
+:global .green-background {
   background: var(--green-bg);
 }
 
-.blue-background {
+:global .blue-background {
   background: var(--blue-bg);
 }
 
-.purple-background {
+:global .purple-background {
   background: var(--purple-bg);
 }
 
-.pink-background {
+:global .pink-background {
   background: var(--pink-bg);
 }
 
-.red-background {
+:global .red-background {
   background: var(--red-bg);
 }
 
-.white-background {
+:global .white-background {
   background: none;
   border: 1px solid var(--focus-background);
 }
 
 /* default font color */
 
-.gray-font {
+:global .gray-font {
   color: var(--gray-text);
   fill: var(--gray-text);
 }
 
-.brown-font {
+:global .brown-font {
   color: var(--brown-text);
   fill: var(--brown-text);
 }
 
-.orange-font {
+:global .orange-font {
   color: var(--orange-text);
   fill: var(--orange-text);
 }
 
-.yellow-font {
+:global .yellow-font {
   color: var(--yellow-text);
   fill: var(--yellow-text);
 }
 
-.green-font {
+:global .green-font {
   color: var(--green-text);
   fill: var(--green-text);
 }
 
-.blue-font {
+:global .blue-font {
   color: var(--blue-text);
   fill: var(--blue-text);
 }
 
-.purple-font {
+:global .purple-font {
   color: var(--purple-text);
   fill: var(--purple-text);
 }
 
-.pink-font {
+:global .pink-font {
   color: var(--pink-text);
   fill: var(--pink-text);
 }
 
-.red-font {
+:global .red-font {
   color: var(--red-text);
   fill: var(--red-text);
 }
