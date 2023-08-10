@@ -12,7 +12,7 @@ function useToggle(initialContent?: ReactElement | ReactNode, open?: boolean) {
   const toggleBodyRef = useRef<HTMLDivElement | null>(null);
   const toggleContentRef = useRef<HTMLDivElement | null>(null);
 
-  const [isCollapsed, setIsCollapsed] = useState<boolean>(open || false);
+  const [isCollapsed, setIsCollapsed] = useState<boolean>(true);
   const [filled, setFilled] = useState<boolean>(!!initialContent);
 
   const isTextNode = (node: Node): boolean => node.nodeType === Node.TEXT_NODE;
@@ -37,6 +37,8 @@ function useToggle(initialContent?: ReactElement | ReactNode, open?: boolean) {
   };
 
   useEffect(() => {
+    if (!open) setIsCollapsed(false);
+
     const checkFilled = () => {
       if (toggleContentRef.current === null) return;
 
