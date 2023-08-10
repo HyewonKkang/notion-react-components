@@ -46,7 +46,7 @@
   content: attr(data-number);
   text-align: center;
   white-space: nowrap;
-  width: 24px;
+  min-width: 24px;
   margin-top: 2px;
 }
 
@@ -75,6 +75,16 @@
   height: 24px;
   border-radius: 3px;
   color: var(--filled-placeholder);
+}
+
+.button-reset {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
 }
 
 .toggle-icon.filled {
@@ -106,4 +116,20 @@
   height: 0;
   width: 100%;
   overflow: hidden;
+}
+
+.contents .text {
+  margin-top: 2px;
+  margin-bottom: 1px;
+  color: blue;
+}
+
+.toggle-header-text {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.toggle-body-text {
+  margin-top: 1px;
+  margin-bottom: 0px;
 }

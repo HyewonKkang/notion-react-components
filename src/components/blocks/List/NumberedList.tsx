@@ -9,11 +9,13 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   number?: number;
 }
 
-function NumberedList({ number = 1, ...rest }: Props) {
+function NumberedList({ number = 1, className, children, ...rest }: Props) {
   return (
-    <div className={cx('list-block')} {...rest}>
+    <div className={cx('list-block', className)} {...rest}>
       <div className={cx('item-number')} data-number={`${number}.`} />
-      <Text placeholder='리스트' style={{ marginTop: 0 }} />
+      <Text placeholder='리스트' style={{ marginTop: 0 }}>
+        {children as string}
+      </Text>
     </div>
   );
 }
