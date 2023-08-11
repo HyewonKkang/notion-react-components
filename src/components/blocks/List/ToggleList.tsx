@@ -1,4 +1,4 @@
-import { Children, HTMLAttributes, ReactNode, cloneElement, isValidElement } from 'react';
+import { Children, HTMLAttributes, cloneElement, isValidElement } from 'react';
 import classnames from 'classnames/bind';
 import styles from './List.module.css';
 import Text from '../Text';
@@ -8,13 +8,13 @@ import useToggle from '../../../hooks/useToggle';
 const cx = classnames.bind(styles);
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
-  contents?: ReactNode;
+  header?: string;
   open?: boolean;
 }
 
-function ToggleList({ contents, open, children, className, ...rest }: Props) {
+function ToggleList({ header, open, children, className, ...rest }: Props) {
   const { filled, isCollapsed, handleButtonClick, toggleBodyRef, toggleContentRef } = useToggle(
-    contents,
+    header,
     open,
   );
 
@@ -31,12 +31,15 @@ function ToggleList({ contents, open, children, className, ...rest }: Props) {
       </div>
       <div className={cx('toggle-body-wrapper')}>
         <Text placeholder='토글' className={cx('toggle-header-text')}>
-          {children}
+          {header}
         </Text>
-        <div className={cx('toggle-body')} ref={toggleBodyRef}>
+        <div
+          className={cx('toggle-body', { 'fit-content-height': isCollapsed })}
+          ref={toggleBodyRef}
+        >
           <div className={cx('contents')} ref={toggleContentRef}>
-            {contents ? (
-              Children.map(contents, (child) => {
+            {children ? (
+              Children.map(children, (child) => {
                 if (isValidElement(child) && child.type === Text) {
                   return cloneElement(child, {
                     ...child.props,

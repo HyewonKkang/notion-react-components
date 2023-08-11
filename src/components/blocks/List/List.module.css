@@ -134,6 +134,10 @@
   overflow: hidden;
 }
 
+.fit-content-height {
+  height: fit-content;
+}
+
 .contents .text {
   margin-top: 2px;
   margin-bottom: 1px;
@@ -146,6 +150,6 @@
 }
 
 .toggle-body-text {
-  margin-top: 1px;
-  margin-bottom: 0px;
+  margin-top: 1px !important;
+  margin-bottom: 0px !important;
 }

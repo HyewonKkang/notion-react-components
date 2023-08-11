@@ -4,14 +4,14 @@ import Text from '../Text';
 import Callout from '../Callout';
 
 const meta: Meta<typeof ToggleList> = {
-  title: 'blocks/List',
+  title: 'blocks/ToggleList',
   parameters: {
     componentSubtitle: 'ToggleList 컴포넌트',
     controls: { expanded: true, hideNoControlsWarning: true, sort: 'requiredFirst' },
   },
   component: ToggleList,
   argTypes: {
-    contents: { control: false },
+    header: { control: false },
     open: { control: false },
   },
 };
@@ -19,33 +19,51 @@ const meta: Meta<typeof ToggleList> = {
 export default meta;
 type Story = StoryObj<typeof ToggleList>;
 
-export const Toggle: Story = {
+export const Basics: Story = {
   render: () => {
     return (
       <div>
-        <ToggleList
-          contents={
+        <ToggleList header='이는 토글의 예시입니다. 이 작은 삼각형을 클릭하면 토글이 열립니다.'>
+          <Text>
+            여기에 무엇이든(이미지, 임베드 등) 추가할 수 있으며 삼각형을 다시 클릭하여 숨길 수도
+            있습니다.
+          </Text>
+        </ToggleList>
+        <ToggleList open header='토글 안에 모든 종류의 콘텐츠 블록을 넣을 수 있습니다.'>
+          <>
             <Text>
               여기에 무엇이든(이미지, 임베드 등) 추가할 수 있으며 삼각형을 다시 클릭하여 숨길 수도
               있습니다.
             </Text>
-          }
-        >
-          이는 토글의 예시입니다. 이 작은 삼각형을 클릭하면 토글이 열립니다.
+            <Callout emoji='😅' />
+          </>
         </ToggleList>
-        <ToggleList
-          open
-          contents={
-            <>
-              <Text>
-                여기에 무엇이든(이미지, 임베드 등) 추가할 수 있으며 삼각형을 다시 클릭하여 숨길 수도
-                있습니다.
-              </Text>
-              <Callout emoji='😅' />
-            </>
-          }
-        >
-          토글 안에 모든 종류의 콘텐츠 블록을 넣을 수 있습니다.
+      </div>
+    );
+  },
+};
+
+export const Nested: Story = {
+  render: () => {
+    const commonProps = {
+      header: '리스트입니다.',
+      open: true,
+    };
+    return (
+      <div>
+        <ToggleList {...commonProps}>
+          <ToggleList {...commonProps}>
+            <Text>내부입니다.</Text>
+            <ToggleList {...commonProps}>
+              <ToggleList {...commonProps}>
+                <ToggleList {...commonProps}>
+                  <ToggleList {...commonProps}>
+                    <Text>리스트입니다.</Text>
+                  </ToggleList>
+                </ToggleList>
+              </ToggleList>
+            </ToggleList>
+          </ToggleList>
         </ToggleList>
       </div>
     );
