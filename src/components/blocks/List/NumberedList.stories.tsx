@@ -2,13 +2,16 @@ import type { Meta, StoryObj } from '@storybook/react';
 import NumberedList from './NumberedList';
 
 const meta: Meta<typeof NumberedList> = {
-  title: 'blocks/List',
+  title: 'blocks/List/Numbered',
   parameters: {
     componentSubtitle: 'NumberedList 컴포넌트',
     controls: { expanded: true, hideNoControlsWarning: true, sort: 'requiredFirst' },
   },
   component: NumberedList,
-  argTypes: { number: { control: { type: 'number' } } },
+  argTypes: {
+    number: { control: { type: 'number', min: 1 } },
+    depth: { control: { type: 'number', min: 1 } },
+  },
 };
 
 export default meta;
@@ -24,4 +27,28 @@ export const Numbered: Story = {
       </div>
     );
   },
+};
+
+export const Nested: Story = {
+  render: () => {
+    return (
+      <div>
+        <NumberedList>
+          리스트입니다.
+          <NumberedList depth={2}>
+            리스트입니다.
+            <NumberedList depth={3}>
+              리스트입니다.
+              <NumberedList depth={4}>리스트입니다.</NumberedList>
+            </NumberedList>
+          </NumberedList>
+        </NumberedList>
+      </div>
+    );
+  },
+};
+
+Nested.argTypes = {
+  number: { control: false },
+  depth: { control: false },
 };

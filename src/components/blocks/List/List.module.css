@@ -30,6 +30,22 @@
   margin-bottom: 0px;
 }
 
+.bullet-1.bullet-point::before {
+  content: '•';
+}
+
+.bullet-2.bullet-point::before {
+  content: '◦';
+}
+
+.bullet-0.bullet-point::before {
+  content: '▪';
+}
+
+.list-nested {
+  margin-top: 2px;
+}
+
 /* NumberedList */
 
 .item-number {

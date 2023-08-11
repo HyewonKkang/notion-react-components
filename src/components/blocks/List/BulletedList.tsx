@@ -5,12 +5,14 @@ import Text from '../Text';
 
 const cx = classnames.bind(styles);
 
-export interface Props extends HTMLAttributes<HTMLDivElement> {}
+export interface Props extends HTMLAttributes<HTMLDivElement> {
+  depth?: number;
+}
 
-function BulletedList({ className, children, ...rest }: Props) {
+function BulletedList({ className, depth = 1, children, ...rest }: Props) {
   return (
-    <div className={cx('list-block', className)} {...rest}>
-      <div className={cx('bullet-point')} />
+    <div className={cx('list-block', { 'list-nested': depth > 1 }, className)} {...rest}>
+      <div className={cx('bullet-point', `bullet-${depth % 3}`)} />
       <Text placeholder='리스트' style={{ marginTop: 0 }}>
         {children as string}
       </Text>
