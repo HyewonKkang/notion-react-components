@@ -1,6 +1,6 @@
 import { AnchorHTMLAttributes } from 'react';
 import classnames from 'classnames/bind';
-import Icon from 'src/components/common/Icon';
+import Emoji from 'src/components/common/Emoji';
 import styles from './ChildPage.module.css';
 import { ReactComponent as PageIcon } from '../../../assets/icons/page.svg';
 
@@ -19,7 +19,7 @@ function ChildPage({ title = '제목 없음', href, icon, className, ...rest }: 
         <div className={cx('page-link')}>
           <div className={cx('page-link-inner')}>
             <div className={cx('page-icon')}>
-              {icon ? <Icon icon={icon} height={24} /> : <PageIcon />}
+              {icon ? <Emoji icon={icon} height={24} /> : <PageIcon />}
             </div>
             <div className={cx('page-title')}>{title}</div>
           </div>

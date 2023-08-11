@@ -1,7 +1,7 @@
 import { HTMLAttributes, cloneElement, useEffect, Children, isValidElement } from 'react';
 import classnames from 'classnames/bind';
 import styles from './Callout.module.css';
-import Icon from '../../common/Icon';
+import Emoji from '../../common/Emoji';
 import Text from '../Text';
 
 const cx = classnames.bind(styles);
@@ -39,7 +39,7 @@ function Callout({
       {...rest}
     >
       <div>
-        <Icon icon={emoji} height={24} />
+        <Emoji icon={emoji} height={24} />
       </div>
       <div className={cx('callout-contents')}>
         <div className={cx('inner-block')}>
