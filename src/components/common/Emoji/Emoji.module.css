@@ -1,0 +1,131 @@
+.icon {
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  border-radius: 0.25em;
+  border: none;
+  background: inherit;
+  padding: 1px;
+}
+
+.icon:hover,
+.icon:focus {
+  background: none;
+}
+
+.icon.has-hover:hover {
+  background: var(--hover-background) !important;
+}
+
+.icon.has-hover:focus {
+  background: var(--focus-background) !important;
+}
+
+.icon span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon:hover {
+  background: var(--icon-hover-background);
+}
+
+.icon:focus {
+  background: var(--icon-focus-background);
+}
+
+/* Emoji-Picker */
+
+.modal-wrapper {
+  z-index: 9999;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.emoji-picker-container {
+  position: absolute;
+  border-radius: 4px;
+  background: white;
+  max-width: calc(100vw - 24px);
+  box-shadow:
+    rgba(15, 15, 15, 0.05) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.1) 0px 3px 6px,
+    rgba(15, 15, 15, 0.2) 0px 9px 24px;
+  overflow: hidden;
+  display: flex;
+  width: 391px;
+  min-width: 180px;
+  max-width: calc(100vw - 24px);
+  max-height: 270px;
+}
+
+.emoji-picker {
+  flex-grow: 1;
+  min-height: 0px;
+  transform: translateZ(0px);
+  z-index: 1;
+  overflow: hidden auto;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  display: flex;
+  flex-direction: column;
+}
+
+.emoji-group {
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+.emoji-group-title {
+  display: flex;
+  padding-left: 14px;
+  padding-right: 14px;
+  margin-top: 6px;
+  margin-bottom: 8px;
+  font-weight: 500;
+  line-height: 120%;
+  user-select: none;
+  color: var(--font-media-description);
+  font-size: 0.688rem;
+  align-self: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.emoji-group-contents {
+  display: flex;
+  flex-flow: row wrap;
+  align-items: flex-start;
+  padding-left: 12px;
+  padding-right: 12px;
+}
+
+.emoji-button {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  width: 32px;
+  height: 32px;
+  font-size: 1.5rem;
+}
+
+.emoji-item {
+  width: 32px;
+  height: 32px;
+}
