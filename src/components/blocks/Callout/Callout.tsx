@@ -1,7 +1,6 @@
 import { HTMLAttributes, cloneElement, useEffect, Children, isValidElement } from 'react';
 import classnames from 'classnames/bind';
 import styles from './Callout.module.css';
-import 'src/styles/colors.css';
 import Icon from '../../common/Icon';
 import Text from '../Text';
 
