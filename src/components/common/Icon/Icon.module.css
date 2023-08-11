@@ -4,9 +4,31 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 24px;
+  height: 100%;
   border-radius: 0.25em;
-  height: 32px;
+  border: none;
+  background: inherit;
+  padding: 1px;
+}
+
+.icon:hover,
+.icon:focus {
+  background: none;
+}
+
+.icon.has-hover:hover {
+  background: var(--hover-background) !important;
+}
+
+.icon.has-hover:focus {
+  background: var(--focus-background) !important;
+}
+
+.icon span {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .icon:hover {

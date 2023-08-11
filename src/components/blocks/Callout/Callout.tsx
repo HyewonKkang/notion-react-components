@@ -20,7 +20,10 @@ function Callout({
   children = <Text placeholder='내용을 입력하세요' style={{ marginTop: '1px' }} />,
   ...rest
 }: Props) {
-  const textDefaultProps = { placeholder: '내용을 입력하세요', style: { marginTop: '1px' } };
+  const textDefaultProps = {
+    placeholder: '내용을 입력하세요',
+    style: { marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 },
+  };
 
   return (
     <div
@@ -36,7 +39,7 @@ function Callout({
       {...rest}
     >
       <div>
-        <Icon icon={emoji} />
+        <Icon icon={emoji} height={24} />
       </div>
       <div className={cx('callout-contents')}>
         <div className={cx('inner-block')}>
