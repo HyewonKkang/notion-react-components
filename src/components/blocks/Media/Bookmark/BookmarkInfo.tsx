@@ -1,6 +1,6 @@
 import { AnchorHTMLAttributes, useEffect, useState } from 'react';
 import classnames from 'classnames/bind';
-import BetaComponent from 'src/components/common/Beta';
+import BetaComponent from '../../../common/Beta';
 import styles from '../Media.module.css';
 
 const cx = classnames.bind(styles);

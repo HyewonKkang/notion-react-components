@@ -1,6 +1,6 @@
 import { HTMLAttributes } from 'react';
-import BetaComponent from 'src/components/common/Beta';
 import { ReactComponent as FileIcon } from 'src/assets/icons/file.svg';
+import BetaComponent from '../../../common/Beta';
 import Media from '../Media';
 import LinkEmbedContent from '../MediaModal/LinkEmbedContent';
 import UploadContent from '../MediaModal/UploadContent';
