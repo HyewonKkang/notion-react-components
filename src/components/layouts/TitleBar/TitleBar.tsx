@@ -12,11 +12,11 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   children?: string;
 }
 
-function TitleBar({ children, emoji, cover, ...rest }: Props) {
+function TitleBar({ children, className, emoji, cover, ...rest }: Props) {
   return (
     <>
       {cover ? <Cover imgSrc={cover} /> : <div className={cx('empty-space')} />}
-      <div className={cx('wrapper')} {...rest}>
+      <div className={cx('wrapper', className)} {...rest}>
         {emoji && (
           <div className={cx('emoji-wrapper')}>
             <div className={cx('emoji', 'no-draggable')}>{emoji}</div>

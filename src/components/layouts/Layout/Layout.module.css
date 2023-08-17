@@ -1,0 +1,30 @@
+.layout {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  background: white;
+  cursor: auto;
+  overflow: hidden;
+}
+
+.layout .layout-body-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  overflow: hidden;
+  flex: 1;
+  overflow-y: auto;
+}
+
+.content {
+  padding-left: calc(96px + env(safe-area-inset-left));
+  padding-right: calc(96px + env(safe-area-inset-right));
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  min-width: 0px;
+  width: 900px;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 5rem;
+}

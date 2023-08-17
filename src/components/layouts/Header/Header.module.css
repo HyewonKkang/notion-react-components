@@ -8,7 +8,7 @@
   user-select: none;
   top: 0;
   position: fixed;
-  width: 100%;
+  width: -webkit-fill-available;
 }
 
 .topbar {
@@ -26,16 +26,16 @@
   position: relative;
 }
 
-.topbar > div:nth-child(2) {
+.breadcrumbs {
   margin-right: auto;
 }
 
-.topbar > div:nth-child(3) {
+.topbar > div:last-child {
   flex-grow: 0;
   flex-shrink: 0;
 }
 
-.topbar div[role='button'] {
+.topbar button {
   cursor: pointer;
   background: inherit;
   border: none;
@@ -44,27 +44,26 @@
   padding: 0;
   overflow: visible;
   cursor: pointer;
-  padding: 2px 6px;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 24px;
+  height: 24px;
+  margin-right: 0.5rem;
 }
 
-.topbar div[role='button']:hover {
+.topbar button:hover {
   background: var(--hover-background);
 }
 
-.topbar div[role='button']:focus {
+.topbar button:focus {
   background: var(--focus-background);
 }
 
-.topbar div[role='button'] svg {
-  width: 20px;
-  height: 20px;
-}
-
-.topbar div[role='button']:first-child {
-  margin-right: 0.5rem;
+.topbar button svg {
+  width: 16px;
+  height: 16px;
+  fill: rgba(55, 53, 47, 0.85);
 }
 
 .breadcrumb {

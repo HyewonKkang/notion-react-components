@@ -41,7 +41,6 @@
 
 .cover-wrapper {
   width: 100%;
-  height: 100%;
 }
 
 .cover-wrapper img {
@@ -50,4 +49,11 @@
   width: 100%;
   height: 30vh;
   object-position: center 50%;
+}
+
+:global .no-draggable {
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }

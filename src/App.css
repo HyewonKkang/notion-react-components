@@ -12,7 +12,7 @@
   height: 100vh;
   display: flex;
   background: white;
-  cursor: text;
+  cursor: auto;
   overflow: hidden;
 }
 
