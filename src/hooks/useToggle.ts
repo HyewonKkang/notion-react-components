@@ -7,6 +7,7 @@ import {
   MouseEvent,
   ReactNode,
 } from 'react';
+import useMutationObserver from './useMutationObserver';
 
 function useToggle(initialContent?: ReactElement | ReactNode, open?: boolean) {
   const toggleBodyRef = useRef<HTMLDivElement | null>(null);
@@ -28,50 +29,33 @@ function useToggle(initialContent?: ReactElement | ReactNode, open?: boolean) {
     return toggleContentRef.current.offsetHeight;
   };
 
-  const updateHeight = () => {
+  const updateHeight = useCallback(() => {
     if (!toggleBodyRef.current) return;
 
     const contentHeight = calculateContentHeight();
     const newHeight = isCollapsed ? `${contentHeight}px` : '0';
-    toggleBodyRef.current.style.height = newHeight;
+    toggleBodyRef.current.style.minHeight = newHeight;
+  }, [isCollapsed]);
+
+  const checkFilled = () => {
+    if (toggleContentRef.current === null) return;
+
+    const { childNodes } = toggleContentRef.current;
+    if (childNodes.length === 0) setFilled(false);
+    else if (
+      childNodes.length === 1 &&
+      (isTextNode(childNodes[0]) || isTextComponent(childNodes[0]))
+    ) {
+      const textContent = childNodes[0].textContent?.trim();
+      setFilled(textContent !== '');
+    } else setFilled(true);
+
+    updateHeight();
   };
 
   useEffect(() => {
     if (!open) setIsCollapsed(false);
-
-    const checkFilled = () => {
-      if (toggleContentRef.current === null) return;
-
-      const { childNodes } = toggleContentRef.current;
-      if (childNodes.length === 0) setFilled(false);
-      else if (
-        childNodes.length === 1 &&
-        (isTextNode(childNodes[0]) || isTextComponent(childNodes[0]))
-      ) {
-        const textContent = childNodes[0].textContent?.trim();
-        setFilled(textContent !== '');
-      } else setFilled(true);
-
-      updateHeight();
-    };
-
     checkFilled();
-
-    const observer = new MutationObserver(() => {
-      checkFilled();
-    });
-
-    if (toggleContentRef.current) {
-      observer.observe(toggleContentRef.current, {
-        childList: true,
-        characterData: true,
-        subtree: true,
-      });
-    }
-
-    return () => {
-      observer.disconnect();
-    };
   }, []);
 
   const handleButtonClick = useCallback(
@@ -82,9 +66,12 @@ function useToggle(initialContent?: ReactElement | ReactNode, open?: boolean) {
     [isCollapsed],
   );
 
-  useEffect(() => {
-    updateHeight();
-  }, [isCollapsed]);
+  useEffect(() => updateHeight(), [isCollapsed, updateHeight]);
+
+  useMutationObserver({
+    target: toggleContentRef.current,
+    callback: checkFilled,
+  });
 
   return { filled, isCollapsed, handleButtonClick, toggleBodyRef, toggleContentRef };
 }
