@@ -1,0 +1,10 @@
+.code-wrapper {
+  width: 100%;
+  margin-top: 4px;
+  margin-bottom: 4px;
+}
+
+.code-wrapper pre,
+.code-wrapper pre code {
+  width: 100%;
+}

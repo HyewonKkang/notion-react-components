@@ -31,7 +31,7 @@ module.exports = {
       },
     ],
     'import/extensions': [
-      2,
+      'error',
       'ignorePackages',
       {
         js: 'never',
@@ -47,6 +47,7 @@ module.exports = {
     'react/jsx-props-no-spreading': ['warn'],
     'react/react-in-jsx-scope': 'off',
     'no-restricted-exports': 'off',
+    'import/no-unresolved': 'off',
   },
   settings: {
     'import/resolver': {

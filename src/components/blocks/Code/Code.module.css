@@ -1,0 +1,29 @@
+.code-wrapper {
+  max-width: 100%;
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding: 3px 2px;
+  margin-top: 3px;
+  margin-bottom: 3px;
+}
+
+:global code {
+  color: var(--single-code-text);
+  background: var(--single-code-bg);
+  border-radius: 3px;
+  font-size: 85%;
+  padding: 0.2em 0.4em;
+  font-family: 'SFMono-Regular', Menlo, Consolas, 'PT Mono', 'Liberation Mono', Courier, monospace;
+  line-height: normal;
+  white-space: pre-wrap;
+  word-break: break-word;
+  margin-top: 3px;
+  margin-bottom: 1px;
+  cursor: text;
+  width: fit-content;
+}
+
+:global code:focus {
+  outline: none;
+}
