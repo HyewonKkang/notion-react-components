@@ -54,7 +54,7 @@ function App() {
   ];
 
   return (
-    <Layout hasSider={false}>
+    <Layout hasSider>
       <Layout.Sider
         defaultCollapsed
         notionTitle='Hyewon Kang의 private notion'
@@ -98,7 +98,8 @@ function App() {
         <Layout.Content>
           <CodeSnippet language='javascript' code={'console.log("hello");'} />
           <ChildPage href='' icon='😅' />
-          <Callout />
+          <Callout onTextChange={(text) => console.log(text)} />
+          <Text onTextChange={(text) => console.log(text)} />
           <Text>
             <code>Ionic</code> 앱으로 돌아오는 이벤트를 잡는 것은 <code>iOS</code>와{' '}
             <code>android</code>가 달랐는데, <code>iOS</code>는{' '}

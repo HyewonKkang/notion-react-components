@@ -1,5 +1,6 @@
 import { HTMLAttributes, cloneElement, useEffect, Children, isValidElement } from 'react';
 import classnames from 'classnames/bind';
+import { ContentEditableChangeEvent } from 'src/hooks/useContentEditable';
 import styles from './Callout.module.css';
 import Emoji from '../../common/Emoji';
 import Text from '../Text';
@@ -10,6 +11,7 @@ export interface Props extends HTMLAttributes<HTMLDivElement> {
   emoji?: string;
   fontColor?: NotionColor;
   backgroundColor?: NotionColor;
+  onTextChange?: ContentEditableChangeEvent;
 }
 
 function Callout({
@@ -17,12 +19,14 @@ function Callout({
   fontColor,
   backgroundColor = 'gray',
   className,
+  onTextChange,
   children = <Text placeholder='내용을 입력하세요' style={{ marginTop: '1px' }} />,
   ...rest
 }: Props) {
   const textDefaultProps = {
     placeholder: '내용을 입력하세요',
     style: { marginTop: 0, marginBottom: 0, paddingTop: 0, paddingBottom: 0 },
+    onTextChange,
   };
 
   return (

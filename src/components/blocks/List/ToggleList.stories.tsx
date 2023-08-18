@@ -23,8 +23,11 @@ export const Basics: Story = {
   render: () => {
     return (
       <div>
-        <ToggleList header='이는 토글의 예시입니다. 이 작은 삼각형을 클릭하면 토글이 열립니다.'>
-          <Text>
+        <ToggleList
+          header='이는 토글의 예시입니다. 이 작은 삼각형을 클릭하면 토글이 열립니다.'
+          onTextChange={(text) => console.log(text)}
+        >
+          <Text onTextChange={(text) => console.log(text)}>
             여기에 무엇이든(이미지, 임베드 등) 추가할 수 있으며 삼각형을 다시 클릭하여 숨길 수도
             있습니다.
           </Text>

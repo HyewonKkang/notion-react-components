@@ -1,5 +1,6 @@
 import { Children, HTMLAttributes, cloneElement, isValidElement } from 'react';
 import classnames from 'classnames/bind';
+import { ContentEditableChangeEvent } from 'src/hooks/useContentEditable';
 import styles from './List.module.css';
 import Text from '../Text';
 import { ReactComponent as ToggleIcon } from '../../../assets/icons/toggle.svg';
@@ -10,9 +11,10 @@ const cx = classnames.bind(styles);
 export interface Props extends HTMLAttributes<HTMLDivElement> {
   header?: string;
   open?: boolean;
+  onTextChange?: ContentEditableChangeEvent;
 }
 
-function ToggleList({ header, open, children, className, ...rest }: Props) {
+function ToggleList({ header, open, children, className, onTextChange, ...rest }: Props) {
   const { filled, isCollapsed, handleButtonClick, toggleBodyRef, toggleContentRef } = useToggle(
     header,
     open,
@@ -30,7 +32,7 @@ function ToggleList({ header, open, children, className, ...rest }: Props) {
         </button>
       </div>
       <div className={cx('toggle-body-wrapper')}>
-        <Text placeholder='토글' className={cx('toggle-header-text')}>
+        <Text placeholder='토글' className={cx('toggle-header-text')} onTextChange={onTextChange}>
           {header}
         </Text>
         <div

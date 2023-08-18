@@ -22,8 +22,10 @@ export const Basics: Story = {
     const { tag } = args;
     return (
       <div>
-        <Heading tag={tag || 'h2'} />
-        <Text>제목의 사이즈는 h1, h2, h3, h4 중 선택 가능합니다.</Text>
+        <Heading tag={tag || 'h2'} onTextChange={(text) => console.log(text)} />
+        <Text onTextChange={(text) => console.log(text)}>
+          제목의 사이즈는 h1, h2, h3, h4 중 선택 가능합니다.
+        </Text>
         <Text>h1은 페이지 타이틀에 사용됩니다.</Text>
       </div>
     );
