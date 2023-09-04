@@ -8,15 +8,15 @@ function useContentEditable(onChange?: ContentEditableChangeEvent) {
       .replace(/<br>/g, '\n')
       .replace(/<br\/>/g, '\n')
       .trim();
-    onChange?.(newText);
+    return newText;
   };
 
   const contentEditableProps = {
     contentEditable: true,
     spellCheck: true,
     suppressContentEditableWarning: true,
-    onInput: handleTextChange,
-    onBlur: handleTextChange,
+    onFocus: (e: React.ChangeEvent<HTMLDivElement>) => onChange?.(handleTextChange(e)),
+    onBlur: (e: React.ChangeEvent<HTMLDivElement>) => onChange?.(handleTextChange(e)),
   };
 
   return { handleTextChange, contentEditableProps };
