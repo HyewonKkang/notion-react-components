@@ -1,0 +1,31 @@
+.columns {
+  display: flex;
+  position: relative;
+  flex-grow: 1;
+  flex-direction: row;
+  width: 100%;
+  gap: 46px;
+}
+
+.columns .segment {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  flex-grow: 0;
+  flex-shrink: 0;
+}
+
+.segment-5 {
+  width: calc((100% - 184px) * 0.2);
+}
+
+.segment-4 {
+  width: calc((100% - 138px) * 0.25);
+}
+
+.segment-3 {
+  width: calc((100% - 92px) * 0.333333);
+}
+
+.segment-2 {
+  width: calc((100% - 46px) * 0.5);
+}
