@@ -1,0 +1,132 @@
+.gallery-wrapper {
+  margin-top: 1px;
+}
+
+.gallery-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.gallery-view {
+  display: grid;
+  position: relative;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 16px;
+  padding-top: 16px;
+  padding-bottom: 4px;
+}
+
+.gallery-new-button {
+  width: 100%;
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 3px;
+  box-shadow: rgba(55, 53, 47, 0.09) 0px 0px 0px 1px inset;
+  min-height: 40px;
+}
+
+.gallery-new-button div {
+  color: rgba(55, 53, 47, 0.35);
+  display: flex;
+  align-items: center;
+  margin-left: -6px;
+}
+
+.plus-icon {
+  width: 14px;
+  height: 14px;
+  display: block;
+  fill: rgba(55, 53, 47, 0.35);
+  flex-shrink: 0;
+  margin-left: -1px;
+  margin-right: 6px;
+}
+
+.gallery-item {
+  display: flex;
+  color: inherit;
+  text-decoration: none;
+  user-select: none;
+  transition: background 100ms ease-out 0s;
+  cursor: pointer;
+  box-shadow:
+    rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.1) 0px 2px 4px;
+  border-radius: 3px;
+  background: white;
+  overflow: hidden;
+  position: static;
+  height: 100%;
+  flex-direction: column;
+}
+
+.gallery-item:hover {
+  background: #fafafa;
+}
+
+.gallery-preview {
+  position: relative;
+  width: 100%;
+  min-height: 180px;
+  height: 180px;
+  overflow: hidden;
+  margin: 0 auto;
+}
+
+.gallery-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.gallery-title {
+  width: 100%;
+  display: flex;
+  padding: 12px 10px 6px;
+  position: relative;
+  justify-content: flex-start;
+}
+
+.gallery-title span:first-child {
+  margin-right: 5px;
+}
+
+.gallery-attributes-panel {
+  min-height: 24px;
+  padding-top: 0px;
+  padding-bottom: 10px;
+}
+
+.gallery-attributes-panel > * {
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  border-radius: 5px;
+  margin: 0px 6px 2px;
+  padding: 0px 5px;
+  font-size: 12px;
+  min-height: 24px;
+  white-space: nowrap;
+  width: fit-content;
+}
+
+button {
+  background: inherit;
+  border: none;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  overflow: visible;
+  cursor: pointer;
+}
