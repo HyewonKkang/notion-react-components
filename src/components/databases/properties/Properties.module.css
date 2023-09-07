@@ -1,0 +1,210 @@
+/* Text, Date */
+.text,
+.date,
+.url {
+  line-height: 1.5;
+  white-space: nowrap;
+  word-break: normal;
+  overflow: hidden;
+  font-size: 0.8rem;
+}
+
+/* Url */
+.url {
+  display: inline;
+  color: black;
+  text-decoration: none;
+  user-select: none;
+  transition: background 20ms ease-in 0s;
+  cursor: pointer;
+  pointer-events: all;
+  background-image: linear-gradient(
+    to right,
+    rgba(55, 53, 47, 0.16) 0%,
+    rgba(55, 53, 47, 0.16) 100%
+  );
+  background-repeat: repeat-x;
+  background-position: 0px 100%;
+  background-size: 100% 1px;
+}
+
+/* Status */
+.status-wrapper {
+  display: flex;
+  min-width: 0px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  gap: 4px 6px;
+  white-space: no-wrap;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0px;
+  max-width: 100%;
+  border-radius: 9px;
+  padding-left: 7px;
+  padding-right: 9px;
+  font-size: 0.8rem;
+  line-height: 120%;
+  color: var(--tag-gray-text);
+  background: var(--tag-gray);
+  margin: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  align-items: center;
+  height: 1.125rem;
+  line-height: 1.125rem;
+}
+
+.status-circle {
+  margin-right: 5px;
+  border-radius: 99px;
+  height: 8px;
+  width: 8px;
+  display: inline-flex;
+  flex-shrink: 0;
+}
+
+.status span {
+  padding-top: 4px;
+}
+
+/* Multi Select */
+.multi-select-wrapper {
+  display: flex;
+  min-width: 0px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+  gap: 4px 6px;
+}
+
+/* Select */
+.select-wrapper {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  min-width: 0px;
+  width: fit-content;
+  height: 20px;
+  border-radius: 3px;
+  padding-left: 6px;
+  padding-right: 6px;
+  font-size: 0.8rem;
+  line-height: 120%;
+  color: rgb(65, 36, 84);
+  margin: 0px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.select {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: inline-flex;
+  align-items: center;
+  height: 20px;
+  line-height: 20px;
+}
+
+.select span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Colors */
+.red {
+  background: var(--tag-red);
+  color: var(--tag-red-text);
+}
+
+.red-circle {
+  background: var(--circle-red);
+}
+
+.purple {
+  background: var(--tag-purple);
+  color: var(--tag-purple-text);
+}
+
+.purple-circle {
+  background: var(--circle-purple);
+}
+
+.orange {
+  background: var(--tag-orange);
+  color: var(--tag-orange-text);
+}
+
+.orange-circle {
+  background: var(--circle-orange);
+}
+
+.yellow {
+  background: var(--tag-yellow);
+  color: var(--tag-yellow-text);
+}
+
+.yellow-circle {
+  background: var(--circle-yellow);
+}
+
+.lightGray {
+  background: var(--tag-lightGray);
+  color: var(--tag-lightGray-text);
+}
+
+.lightGray-circle {
+  background: var(--circle-lightGray);
+}
+
+.gray {
+  background: var(--tag-gray);
+  color: var(--tag-gray-text);
+}
+
+.gray-circle {
+  background: var(--circle-gray);
+}
+
+.green {
+  background: var(--tag-green);
+  color: var(--tag-green-text);
+}
+
+.green-circle {
+  background: var(--circle-green);
+}
+
+.blue {
+  background: var(--tag-blue);
+  color: var(--tag-blue-text);
+}
+
+.blue-circle {
+  background: var(--circle-blue);
+}
+
+.pink {
+  background: var(--tag-pink);
+  color: var(--tag-pink-text);
+}
+
+.pink-circle {
+  background: var(--circle-pink);
+}
+
+.brown {
+  background: var(--tag-brown);
+  color: var(--tag-brown-text);
+}
+
+.brown-circle {
+  background: var(--circle-brown);
+}

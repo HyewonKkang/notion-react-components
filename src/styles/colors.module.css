@@ -38,4 +38,38 @@
 
   --single-code-text: #eb5757;
   --single-code-bg: rgba(135, 131, 120, 0.15);
+
+  /* tags */
+  --tag-light-gray: rgba(227, 226, 224, 0.5);
+  --tag-light-gray-text: rgb(50, 48, 44);
+  --tag-gray: rgb(227, 226, 224);
+  --tag-gray-text: rgb(50, 48, 44);
+  --tag-brown: rgb(238, 224, 218);
+  --tag-brown-text: rgb(68, 42, 30);
+  --tag-orange: rgb(250, 222, 201);
+  --tag-orange-text: rgb(73, 41, 14);
+  --tag-yellow: rgb(253, 236, 200);
+  --tag-yellow-text: rgb(64, 44, 27);
+  --tag-green: rgb(219, 237, 219);
+  --tag-green-text: rgb(28, 56, 41);
+  --tag-blue: rgb(211, 229, 239);
+  --tag-blue-text: rgb(24, 51, 71);
+  --tag-purple: rgb(232, 222, 238);
+  --tag-purple-text: rgb(65, 36, 84);
+  --tag-pink: rgb(245, 224, 233);
+  --tag-pink-text: rgb(76, 35, 55);
+  --tag-red: rgb(255, 226, 221);
+  --tag-red-text: rgb(93, 23, 21);
+
+  /* status property */
+  --circle-gray: rgb(145, 145, 142);
+  --circle-light-gray: rgb(145, 145, 142);
+  --circle-brown: rgb(187, 132, 108);
+  --circle-yellow: rgb(203, 148, 51);
+  --circle-green: rgb(108, 155, 125);
+  --circle-blue: rgb(91, 151, 189);
+  --circle-orange: rgb(215, 129, 58);
+  --circle-purple: rgb(167, 130, 195);
+  --circle-pink: rgb(205, 116, 159);
+  --circle-red: rgb(225, 111, 100);
 }

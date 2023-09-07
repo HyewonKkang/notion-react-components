@@ -31,20 +31,25 @@ interface DatabaseProperties {
   url?: boolean;
 }
 
-type StatusProperty = 'todo' | 'progress' | 'complete';
+type StatusProperty = 'todo' | 'progress' | 'complete' | string;
 
-type SelectColor = NotionColor | 'lightGray';
+type TagColor = NotionColor | 'lightGray';
 
 interface SelectTagType {
   tag: string;
-  color?: SelectColor;
+  color?: TagColor;
+}
+
+interface Status {
+  tag: StatusProperty;
+  color?: TagColor;
 }
 
 interface ItemProperties {
   text?: string;
   select?: SelectTagType;
   multiSelect?: Array<SelectTagType>;
-  status?: StatusProperty;
+  status?: Status;
   date?: Date;
   url?: string;
 }

@@ -1,8 +1,7 @@
 import { AnchorHTMLAttributes } from 'react';
 import classnames from 'classnames/bind';
 import styles from './Gallery.module.css';
-import Select from '../properties/Select';
-import MultiSelect from '../properties/MultiSelect';
+import { Select, MultiSelect, Text, Date, Url, Status } from '../properties';
 
 const cx = classnames.bind(styles);
 
@@ -16,6 +15,10 @@ function GalleryItem({ children, className, item, properties, ...rest }: Props) 
   const hasThumbnail = !!thumbnail;
   const shouldRenderSelect = properties?.select && select;
   const shouldRenderMultiSelect = properties?.multiSelect && multiSelect;
+  const shouldRenderText = properties?.text && text;
+  const shouldRenderStatus = properties?.status && status;
+  const shouldRenderDate = properties?.date && date;
+  const shouldRenderUrl = properties?.url && url;
 
   return (
     <a className={cx('gallery-item', className)} href={href} {...rest}>
@@ -33,6 +36,10 @@ function GalleryItem({ children, className, item, properties, ...rest }: Props) 
           </div>
         )}
         {shouldRenderMultiSelect && <MultiSelect selects={multiSelect} />}
+        {shouldRenderText && <Text>{text}</Text>}
+        {shouldRenderDate && <Date date={date} />}
+        {shouldRenderStatus && <Status status={status} />}
+        {shouldRenderUrl && <Url link={url} />}
       </div>
     </a>
   );
