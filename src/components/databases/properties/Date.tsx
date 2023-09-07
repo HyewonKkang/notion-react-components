@@ -9,8 +9,7 @@ export interface Props extends HTMLAttributes<HTMLElement> {
 }
 
 function Date({ className, date, ...rest }: Props) {
-  const dateFormatted =
-    date && `${date.getFullYear()}년 ${date.getMonth() + 1}월 ${date.getDate()}일`;
+  const dateFormatted = date && `${date.getFullYear()}년 ${date.getMonth()}월 ${date.getDate()}일`;
 
   return (
     <div className={cx('date', className)} {...rest}>
