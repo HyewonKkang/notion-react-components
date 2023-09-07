@@ -8,13 +8,20 @@ import GalleryItem from './GalleryItem';
 const cx = classnames.bind(styles);
 
 export interface Props extends HTMLAttributes<HTMLDivElement> {
+  title?: string;
+  showTitle?: boolean;
   items?: Array<GalleryItemInfo>;
   properties?: DatabaseProperties;
 }
 
-function Gallery({ children, className, items, properties, ...rest }: Props) {
+function Gallery({ title, showTitle, children, className, items, properties, ...rest }: Props) {
   return (
     <div className={cx('gallery-wrapper', className)} {...rest}>
+      {showTitle && (
+        <div className={cx('gallery-view-title', `${title ? 'filled' : ''}`)}>
+          {title || '제목 없음'}
+        </div>
+      )}
       <div className={cx('gallery-view')}>
         {items?.map((item, index) => (
           <GalleryItem item={item} key={index} properties={properties} />
